@@ -1,0 +1,43 @@
+<div class="formcss">
+<form action="/user/create" method="POST" id="signup-form" class="form-signin">
+	<h2 class="form-signin-heading">Create your diary!</h2><br />
+
+	
+	<% if(flash && flash.err) { %>
+		<ul class="alert alert-success">
+	<% Object.keys(flash.err).forEach(function(error) { %>
+		<li><%- JSON.stringify(flash.err[error]) %></li>
+	<% }) %>
+	</ul>
+	<% } %>
+
+
+	<div class="textbox">
+	<input type="text" class="form-control" placeholder="your name" name="name"><br />
+	<input type="text" class="form-control" placeholder="email address" name="email"><br />
+	<input type="password" class="form-control" placeholder="password" id="npassword" name="password"><br />
+	<input type="password" class="form-control" placeholder="password confirmation" name="confirmation">
+	<br /><br />
+	
+	<b>Lets start to enter your details!!!</b><br />
+
+	<input type="text" class="form-control" placeholder="your favourite place" name="place"><br />
+	<input type="text" class="form-control" placeholder="your favourite food" name="food"><br />
+	<input type="text" class="form-control" placeholder="your favourite movie" name="movie"><br />
+	<input type="text" class="form-control" placeholder="your favourite color" name="color"><br />
+	<input type="text" class="form-control" placeholder="your favourite actor" name="actor"><br />
+	<input type="text" class="form-control" placeholder="your favourite actress" name="actress"><br />
+	<input type="text" class="form-control" placeholder="your Greatest Achievement" name="achieve"><br />
+	<input type="text" class="form-control" placeholder="your Worst memory" name="memory"><br />
+	<input type="text" class="form-control" placeholder="your Greatest Crush" name="crush"><br />
+	<input type="text" class="form-control" placeholder="your most lovable person" name="lover"><br />
+	<input type="text" class="form-control" placeholder="your pet(s) name(if many,enter with '-')" name="pet"><br />
+	<input type="text" class="form-control" placeholder="your precious gift" name="gift"><br />
+	<input type="text" class="form-control" placeholder="your Phobia" name="phobia"><br />
+
+	</div>
+
+	<input type="submit" class="btn btn-lg btn-primary btn-block" value="create account" />
+	<input type="hidden" name="_csrf" value="<%=_csrf %>" />
+</form>
+</div>
